@@ -1,0 +1,20 @@
+﻿@model IEnumerable<MovieOrganizer.Models.Domain.Movie>
+
+@* @{
+    ViewData["Title"] = Model.Title;
+} *@
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6">
+            <ol>
+                @foreach(var movie in Model.OrderBy(m => m.Title))
+                {
+                    <li>
+                        @movie.Title
+                    </li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>

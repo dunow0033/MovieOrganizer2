@@ -1,0 +1,27 @@
+﻿@model MovieOrganizer.Models.Domain.Movie
+
+<h2>Add a New Movie</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label for="title">Movie:</label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <br />
+
+    <div>
+        <label for="category">Category:</label>
+        <input asp-for="Category" class="form-control" />
+    </div>
+    <br />
+
+    <div>
+        <label for="category">Rating:</label>
+        <input asp-for="Rating" class="form-control" />
+    </div>
+    <br />
+
+    <div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
