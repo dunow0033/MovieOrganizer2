@@ -2,7 +2,7 @@
 
 namespace MovieOrganizer.Models.ViewModels
 {
-    public class RegisterViewModel
+    public class UserViewModel
     {
         [Required]
         public string Username { get; set; }
@@ -14,5 +14,9 @@ namespace MovieOrganizer.Models.ViewModels
         [Required]
         [MinLength(6, ErrorMessage = "Password has to be at least 6 characters")]
         public string Password { get; set; }
-    }
+
+		[Required]
+		[Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+		public string PasswordConfirmation { get; set; }
+	}
 }

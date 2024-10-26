@@ -16,7 +16,9 @@ namespace MovieOrganizer.Models.Domain
 
         public string PasswordHash { get; set; }
 
-        public ICollection<MovieLog> MovieLogs { get; set; }
+        public ICollection<MovieLog> MovieLogs { get; set; } = new List<MovieLog>();
+        
+        public ICollection<Movie> Movies {  get; set; } = new List<Movie>();
 
         public ICollection<Movie> Movies { get; set; }
 

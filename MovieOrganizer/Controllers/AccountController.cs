@@ -12,16 +12,16 @@ namespace MovieOrganizer.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
-        {
-            var identityUser = new IdentityUser
-            {
-                UserName = registerViewModel.Username,
-                Email = registerViewModel.Email
-            };
+        //[HttpPost]
+        //public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
+        //{
+        //    var identityUser = new IdentityUser
+        //    {
+        //        UserName = registerViewModel.Username,
+        //        Email = registerViewModel.Email
+        //    };
 
-            var identityResult = await User.CreateAsync
-        }
+        //    var identityResult = await User.CreateAsync
+        //}
     }
 }

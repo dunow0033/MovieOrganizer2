@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Azure;
+using Microsoft.EntityFrameworkCore;
 using MovieOrganizer.Data;
 using MovieOrganizer.Models.Domain;
 
@@ -12,6 +13,14 @@ namespace MovieOrganizer.Repositories
         public MovieRepository(MovieDBContext movieDBContext)
         {
             this.movieDBContext = movieDBContext;
+        }
+
+        public async Task<Movie?> GetAsync(int id)
+        {
+            return await movieDBContext.Movies
+                .Include(m => m.MovieLogs)
+                .ThenInclude(ml => ml.User)
+                .FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<IEnumerable<Movie>> GetAllAsync()

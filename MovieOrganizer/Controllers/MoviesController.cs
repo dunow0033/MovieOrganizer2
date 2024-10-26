@@ -41,5 +41,18 @@ namespace MovieOrganizer.Controllers
             //return View
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Show(int movieId) 
+        {
+            var movie = await movieRepository.GetAsync(movieId);
+
+            if(movie == null)
+            {
+                return NotFound();
+            }
+
+            return View(movie);
+        }
     }
 }

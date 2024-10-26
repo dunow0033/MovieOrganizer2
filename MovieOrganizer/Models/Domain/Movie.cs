@@ -21,6 +21,10 @@ namespace MovieOrganizer.Models.Domain
         [Required]
         public string Rating { get; set; }
 
+        public ICollection<MovieLog> MovieLogs { get; set; } = new List<MovieLog>();
+
+        public ICollection<User> Users { get; set; } = new List<User>();
+
         //public static Movie MostComments(MovieDBContext context)
         //{
         //    return context.Movies
