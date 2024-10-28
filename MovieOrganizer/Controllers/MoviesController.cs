@@ -43,6 +43,7 @@ namespace MovieOrganizer.Controllers
         }
 
         [HttpGet]
+        //[ActionName("Details")]
         public async Task<IActionResult> Show(int movieId) 
         {
             var movie = await movieRepository.GetAsync(movieId);

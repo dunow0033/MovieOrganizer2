@@ -30,7 +30,7 @@ namespace MovieOrganizer.Repositories
 
         public async Task<Movie?> CreateAsync(Movie movie)
         {
-            await movieDBContext.AddAsync(movie);
+            await movieDBContext.Movies.AddAsync(movie);
             await movieDBContext.SaveChangesAsync();
             return movie;
         }

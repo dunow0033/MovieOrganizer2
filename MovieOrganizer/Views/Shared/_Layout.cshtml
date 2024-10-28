@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -23,8 +26,8 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Movies" asp-action="Index">Home</a>
                         </li>
 
-                        @if (User.Identity.IsAuthenticated)
-                        {
+                        @*@if (User.Identity.IsAuthenticated)
+                        {*@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Movies" asp-action="Index">All Movies</a>
                             </li>
@@ -32,7 +35,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Movies" asp-action="Create">Add a Movie</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="MovieLogs" asp-action="AllComments">All Comments</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="MovieLogs" asp-action="Index">All Comments</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="MovieLogs" asp-action="Create">Add a New Comment</a>
@@ -42,7 +45,7 @@
                                     <button type="submit" class="btn btn-primary nav-link">Log Out</button>
                                 </form>
                             </li>
-                        }
+                        @* }
                         else
                         {
                             <li class="nav-item">
@@ -51,7 +54,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Sign Up</a>
                             </li>
-                        }
+                        } *@
                     </ul>
                 </div>
             </div>

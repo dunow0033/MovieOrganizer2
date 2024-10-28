@@ -10,7 +10,7 @@
             <ol>
                 @foreach(var movie in Model.OrderBy(m => m.Title))
                 {
-                    <li><a href="@Url.Action("Details", "Movies", new { id = movie.Id })">
+                    <li><a href="@Url.Action("Show", "Movies", new { id = movie.Id })">
                         @movie.Title
                     </a></li>
                 }

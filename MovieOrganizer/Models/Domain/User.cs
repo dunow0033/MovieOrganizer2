@@ -20,8 +20,6 @@ namespace MovieOrganizer.Models.Domain
         
         public ICollection<Movie> Movies {  get; set; } = new List<Movie>();
 
-        public ICollection<Movie> Movies { get; set; }
-
         public User()
         {
             MovieLogs = new List<MovieLog>();
