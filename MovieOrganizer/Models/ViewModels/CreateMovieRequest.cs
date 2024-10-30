@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace MovieOrganizer.Models.ViewModels
+﻿namespace MovieOrganizer.Models.ViewModels
 {
     public class CreateMovieRequest
     {

@@ -25,7 +25,7 @@ namespace MovieOrganizer.Repositories
 
         public async Task<MovieLog?> UpdateAsync(MovieLog movieLog)
         {
-            var existingMovieLog = await movieDBContext.MovieLogs.Include(x => x.MovieId).FirstOrDefaultAsync(x => x.MovieId == movieLog.MovieId);
+            var existingMovieLog = await movieDBContext.MovieLogs.Include(x => x.Title).FirstOrDefaultAsync(x => x.Title == movieLog.Title);
 
             //if (existingMovieLog != null)
             //{

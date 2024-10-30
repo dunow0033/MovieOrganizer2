@@ -18,12 +18,12 @@ namespace MovieOrganizer.Models.Domain
 
         public ICollection<MovieLog> MovieLogs { get; set; } = new List<MovieLog>();
         
-        public ICollection<Movie> Movies {  get; set; } = new List<Movie>();
+        //public ICollection<Movie> Movies {  get; set; } = new List<Movie>();
 
-        public User()
-        {
-            MovieLogs = new List<MovieLog>();
-            Movies = new List<Movie>();
-        }
+        //public User()
+        //{
+        //    MovieLogs = new List<MovieLog>();
+        //    Movies = new List<Movie>();
+        //}
     }
 }

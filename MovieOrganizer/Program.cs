@@ -15,6 +15,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<MovieDBContext>();
 
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
+builder.Services.AddScoped<IMovieLogRepository, MovieLogRepository>();
 
 builder.Services.AddSession(options =>
 {
