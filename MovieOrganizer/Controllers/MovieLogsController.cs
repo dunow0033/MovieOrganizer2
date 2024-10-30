@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using MovieOrganizer.Models.Domain;
 using MovieOrganizer.Models.ViewModels;
 using MovieOrganizer.Repositories;
@@ -9,10 +10,11 @@ namespace MovieOrganizer.Controllers
     public class MovieLogsController : Controller
     {
         private readonly IMovieLogRepository movieLogRepository;
-
-        public MovieLogsController(IMovieLogRepository movieLogRepository)
+        private readonly IMovieRepository movieRepository;
+        public MovieLogsController(IMovieLogRepository movieLogRepository, IMovieRepository movieRepository)
         {
             this.movieLogRepository = movieLogRepository;
+            this.movieRepository = movieRepository;
         }
         public async Task<IActionResult> Index()
         {
@@ -21,8 +23,15 @@ namespace MovieOrganizer.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var movies = await movieRepository.GetAllAsync();
+            ViewBag.MovieList = movies.Select(m => new SelectListItem
+            {
+                Value = m.Id.ToString(),
+                Text = m.Title,
+            }).ToList();
+
             ViewData["Errors"] = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)).ToList();
             return View();
         }

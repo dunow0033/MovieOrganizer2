@@ -1,4 +1,5 @@
 ﻿@model MovieOrganizer.Models.Domain.MovieLog
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 @{
     ViewData["Title"] = "New Movie Log";
@@ -22,7 +23,9 @@
 <form asp-action="Create" asp-controller="MovieLogs">
     <div class="form-group">
         <label>Record a Comment for:</label>
-        <select asp-for="Title" class="form-control" asp-items="ViewBag.MovieList"></select>
+        <select asp-for="Title" class="form-control form-select" asp-items="ViewBag.MovieList">
+            <option selected disabled>Please select a movie:</option>
+        </select>
     </div>
 
     <div class="form-group">
@@ -33,3 +36,9 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+<script>
+    $(document).ready(function () {
+        $('select option:first').hide();
+    });
+</script>
