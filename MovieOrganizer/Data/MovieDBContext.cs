@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using MovieOrganizer.Models.Domain;
 using System.ComponentModel.DataAnnotations;
 
 namespace MovieOrganizer.Data
 {
-    public class MovieDBContext : DbContext
+    public class MovieDBContext : IdentityDbContext<User, IdentityRole<int>, int>
     {
         public MovieDBContext(DbContextOptions options) : base(options) 
         {
@@ -42,7 +43,10 @@ namespace MovieOrganizer.Data
 
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Movie>()
+            modelBuilder.Entity<User>().ToTable("Users");
+      
+
+        modelBuilder.Entity<Movie>()
                .HasData(new List<Movie>()
                {
                    new()

@@ -23,7 +23,7 @@
 <form asp-action="Create" asp-controller="MovieLogs">
     <div class="form-group">
         <label>Record a Comment for:</label>
-        <select asp-for="Title" class="form-control form-select" asp-items="ViewBag.MovieList">
+        <select asp-for="MovieId" class="form-control" asp-items="ViewBag.MovieList">
             <option selected disabled>Please select a movie:</option>
         </select>
     </div>

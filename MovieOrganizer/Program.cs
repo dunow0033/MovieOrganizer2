@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MovieOrganizer.Data;
+using MovieOrganizer.Models.Domain;
 using MovieOrganizer.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +12,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MovieDBContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("MovieOrganizerCon")));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+builder.Services.AddIdentity<User, IdentityRole<int>>()
     .AddEntityFrameworkStores<MovieDBContext>();
 
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
@@ -41,6 +42,7 @@ app.UseRouting();
 
 app.UseSession();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
