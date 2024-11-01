@@ -13,6 +13,7 @@ namespace MovieOrganizer.Controllers
         private readonly IMovieLogRepository movieLogRepository;
         private readonly IMovieRepository movieRepository;
         private readonly UserManager<User> userManager;
+
         public MovieLogsController(
             IMovieLogRepository movieLogRepository, 
             IMovieRepository movieRepository,
@@ -45,7 +46,7 @@ namespace MovieOrganizer.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(MovieLogViewModel movieLogViewModel)
         {
-            var selectedMovie = await movieRepository.GetAsync(movieLogViewModel.MovieId);
+            var selectedMovie = await movieRepository.GetByIdAsync(movieLogViewModel.MovieId);
             var existingUser = await userManager.FindByIdAsync(2.ToString());
 
             var movieLog = new MovieLog
@@ -62,6 +63,19 @@ namespace MovieOrganizer.Controllers
             await movieLogRepository.CreateAsync(movieLog);
 
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Update(Guid movieId)
+        {
+            var existingMovie = await movieRepository.GetByIdAsync(movieId);
+            if (existingMovie == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["Title"] = $"Update {existingMovie.Title} Log";
+            return View(existingMovie);
         }
     }
 }

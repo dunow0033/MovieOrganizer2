@@ -46,7 +46,7 @@ namespace MovieOrganizer.Controllers
         //[ActionName("Details")]
         public async Task<IActionResult> Show(int movieId) 
         {
-            var movie = await movieRepository.GetAsync(movieId);
+            var movie = await movieRepository.GetByIdAsync(movieId);
 
             if(movie == null)
             {

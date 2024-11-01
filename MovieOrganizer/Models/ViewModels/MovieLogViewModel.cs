@@ -6,7 +6,7 @@ namespace MovieOrganizer.Models.ViewModels
     public class MovieLogViewModel
     {
         public User User { get; set; }
-        public int MovieId { get; set; }
+        public Guid MovieId { get; set; }
 
         [Required]
         public string Comments { get; set; }

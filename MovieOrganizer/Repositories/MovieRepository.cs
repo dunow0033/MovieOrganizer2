@@ -15,7 +15,7 @@ namespace MovieOrganizer.Repositories
             this.movieDBContext = movieDBContext;
         }
 
-        public async Task<Movie?> GetAsync(int id)
+        public async Task<Movie?> GetByIdAsync(Guid id)
         {
             return await movieDBContext.Movies
                 .Include(m => m.MovieLogs)

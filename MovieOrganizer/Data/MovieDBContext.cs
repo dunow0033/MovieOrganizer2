@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MovieOrganizer.Data
 {
-    public class MovieDBContext : IdentityDbContext<User, IdentityRole<int>, int>
+    public class MovieDBContext : DbContext
     {
         public MovieDBContext(DbContextOptions options) : base(options) 
         {
@@ -51,49 +51,42 @@ namespace MovieOrganizer.Data
                {
                    new()
                     {
-                        Id = 1,
                         Title = "The Matrix",
                         Category = "Action",
                         Rating = "R"
                     },
                    new()
                     {
-                        Id = 2,
                         Title = "The Rock",
                         Category = "Action",
                         Rating = "R"
                     },
                     new()
                     {
-                        Id = 3,
                         Title = "The Terminator",
                         Category = "Action",
                         Rating = "R"
                     },
                     new()
                     {
-                        Id = 4,
                         Title = "Gladiator",
                         Category = "Action",
                         Rating = "R"
                     },
                     new()
                     {
-                        Id = 5,
                         Title = "The Departed",
                         Category = "Action",
                         Rating = "R"
                     },
                     new()
                     {
-                        Id = 6,
                         Title = "Beetlejuice",
                         Category = "Comedy",
                         Rating = "PG"
                     },
                     new()
                     {
-                        Id = 7,
                         Title = "Ghostbusters",
                         Category = "Comedy",
                         Rating = "PG"
@@ -105,7 +98,6 @@ namespace MovieOrganizer.Data
                {
                     new()
                     {
-                        Id = 1,
                         UserId = 2,
                         MovieId = 4,
                         Title = "Gladiator",
@@ -113,7 +105,6 @@ namespace MovieOrganizer.Data
                     },
                     new()
                     {
-                        Id = 2,
                         UserId = 2,
                         MovieId = 2,
                         Title = "The Rock",
@@ -121,7 +112,6 @@ namespace MovieOrganizer.Data
                     },
                     new()
                     {
-                        Id = 3,
                         UserId = 2,
                         MovieId = 1,
                         Title = "The Matrix",
@@ -129,7 +119,6 @@ namespace MovieOrganizer.Data
                     },
                     new()
                     {
-                        Id = 4,
                         UserId = 2,
                         MovieId = 6,
                         Title = "Beetlejuice",
@@ -137,7 +126,6 @@ namespace MovieOrganizer.Data
                     },
                     new()
                     {
-                        Id = 5,
                         UserId = 3,
                         MovieId = 7,
                         Title = "Ghostbusters",
@@ -152,21 +140,18 @@ namespace MovieOrganizer.Data
                {
                    new()
                     {
-                        Id = 1,
                         Name = "Chris",
                         Email ="chris@gmail.com",
                         PasswordHash = hasher.HashPassword(null, "56gtYH123dftg")
                     },
                     new()
                     {
-                        Id = 2,
                         Name = "Dan",
                         Email ="dan@gmail.com",
                         PasswordHash = hasher.HashPassword(null, "kjiTH67dfWDs23")
                     },
                     new()
                     {
-                        Id = 3,
                         Name = "Tom",
                         Email ="tom@gmail.com",
                         PasswordHash = hasher.HashPassword(null, "5kjiki87ghHY67")

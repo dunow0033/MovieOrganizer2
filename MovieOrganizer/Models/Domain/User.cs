@@ -5,11 +5,7 @@ namespace MovieOrganizer.Models.Domain
 {
     public class User : IdentityUser<int>
     {
-        //public User(string userName) : base(userName)
-        //{
-        //}
-
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }

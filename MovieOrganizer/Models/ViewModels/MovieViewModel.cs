@@ -9,5 +9,7 @@ namespace MovieOrganizer.Models.ViewModels
         public string Category { get; set; }
 
         public string Rating { get; set; }
+
+        public string MovieLog { get; set; }
     }
 }
