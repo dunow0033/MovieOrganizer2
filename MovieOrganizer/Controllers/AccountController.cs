@@ -22,17 +22,39 @@ namespace MovieOrganizer.Controllers
             return View();
         }
 
-		//[HttpPost]
-		//public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
-		//{
-		//    var identityUser = new IdentityUser
-		//    {
-		//        UserName = registerViewModel.Username,
-		//        Email = registerViewModel.Email
-		//    };
+		[HttpPost]
+		public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
+		{
+			var identityUser = new IdentityUser
+			{
+				UserName = registerViewModel.Username,
+				Email = registerViewModel.Email
+			};
 
-		//    var identityResult = await User.CreateAsync
-		//}
+			var identityResult = await userManager.CreateAsync(identityUser, registerViewModel.Password);
+
+			if (identityResult.Succeeded)
+			{
+				var roleIdentityResult = await userManager.AddToRoleAsync(identityUser, "User");
+
+				if (roleIdentityResult.Succeeded)
+				{
+					//return RedirectToAction("Register");
+					await signInManager.SignInAsync(identityUser, isPersistent: false);
+
+					return RedirectToAction("Index", "Movies");
+				}
+			}
+			else
+			{
+				foreach (var error in identityResult.Errors)
+				{
+					ModelState.AddModelError(string.Empty, error.Description);
+				}
+			}
+
+			return View(registerViewModel);
+		}
 
 		[HttpGet]
 		public IActionResult Login()
