@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MovieOrganizer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db2735e791035c6f4962d40eefa6221adb633869")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+117a1bb5a0362a4c256f6dbac77c50a3979072e7")]
 [assembly: System.Reflection.AssemblyProductAttribute("MovieOrganizer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MovieOrganizer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

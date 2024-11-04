@@ -12,8 +12,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MovieDBContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("MovieOrganizerCon")));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<MovieDBContext>();
+builder.Services.AddIdentity<User, IdentityRole<Guid>>()
+    .AddEntityFrameworkStores<MovieDBContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 builder.Services.AddScoped<IMovieLogRepository, MovieLogRepository>();

@@ -12,7 +12,7 @@ using MovieOrganizer.Data;
 namespace MovieOrganizer.Migrations
 {
     [DbContext(typeof(MovieDBContext))]
-    [Migration("20241102043844_initial seeding")]
+    [Migration("20241103235827_initial seeding")]
     partial class initialseeding
     {
         /// <inheritdoc />
@@ -24,6 +24,34 @@ namespace MovieOrganizer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("IdentityRole");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "7e1bbf5a-82e9-43af-b393-f848deffe7a2",
+                            ConcurrencyStamp = "7e1bbf5a-82e9-43af-b393-f848deffe7a2",
+                            Name = "User",
+                            NormalizedName = "User"
+                        });
+                });
 
             modelBuilder.Entity("MovieOrganizer.Models.Domain.Movie", b =>
                 {

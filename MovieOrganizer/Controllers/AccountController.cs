@@ -1,16 +1,17 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MovieOrganizer.Models.ViewModels;
+using MovieOrganizer.Models.Domain;
 
 namespace MovieOrganizer.Controllers
 {
     public class AccountController : Controller
     {
-		private readonly UserManager<IdentityUser> userManager;
-		private readonly SignInManager<IdentityUser> signInManager;
+		private readonly UserManager<User> userManager;
+		private readonly SignInManager<User> signInManager;
 
-		public AccountController(UserManager<IdentityUser> userManager,
-			SignInManager<IdentityUser> signInManager)
+		public AccountController(UserManager<User> userManager,
+			SignInManager<User> signInManager)
 		{
 			this.userManager = userManager;
 			this.signInManager = signInManager;
@@ -25,22 +26,22 @@ namespace MovieOrganizer.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
 		{
-			var identityUser = new IdentityUser
+			var user = new User
 			{
 				UserName = registerViewModel.Username,
 				Email = registerViewModel.Email
 			};
 
-			var identityResult = await userManager.CreateAsync(identityUser, registerViewModel.Password);
+			var identityResult = await userManager.CreateAsync(user, registerViewModel.Password);
 
 			if (identityResult.Succeeded)
 			{
-				var roleIdentityResult = await userManager.AddToRoleAsync(identityUser, "User");
+				var roleIdentityResult = await userManager.AddToRoleAsync(user, "User");
 
 				if (roleIdentityResult.Succeeded)
 				{
 					//return RedirectToAction("Register");
-					await signInManager.SignInAsync(identityUser, isPersistent: false);
+					await signInManager.SignInAsync(user, isPersistent: false);
 
 					return RedirectToAction("Index", "Movies");
 				}

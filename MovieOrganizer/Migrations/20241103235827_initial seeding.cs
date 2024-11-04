@@ -12,6 +12,20 @@ namespace MovieOrganizer.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "IdentityRole",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_IdentityRole", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Movies",
                 columns: table => new
                 {
@@ -84,6 +98,11 @@ namespace MovieOrganizer.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "IdentityRole",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "7e1bbf5a-82e9-43af-b393-f848deffe7a2", "7e1bbf5a-82e9-43af-b393-f848deffe7a2", "User", "User" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_MovieLogs_MovieId",
                 table: "MovieLogs",
@@ -103,6 +122,9 @@ namespace MovieOrganizer.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "IdentityRole");
+
             migrationBuilder.DropTable(
                 name: "MovieLogs");
 
