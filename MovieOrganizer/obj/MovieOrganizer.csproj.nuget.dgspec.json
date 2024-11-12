@@ -1,32 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\source\\repos\\MovieOrganizer\\MovieOrganizer\\MovieOrganizer.csproj": {}
+    "C:\\Users\\bedon\\source\\repos\\MovieOrganizer\\MovieOrganizer\\MovieOrganizer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\source\\repos\\MovieOrganizer\\MovieOrganizer\\MovieOrganizer.csproj": {
+    "C:\\Users\\bedon\\source\\repos\\MovieOrganizer\\MovieOrganizer\\MovieOrganizer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\MovieOrganizer\\MovieOrganizer\\MovieOrganizer.csproj",
+        "projectUniqueName": "C:\\Users\\bedon\\source\\repos\\MovieOrganizer\\MovieOrganizer\\MovieOrganizer.csproj",
         "projectName": "MovieOrganizer",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\MovieOrganizer\\MovieOrganizer\\MovieOrganizer.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\MovieOrganizer\\MovieOrganizer\\obj\\",
+        "projectPath": "C:\\Users\\bedon\\source\\repos\\MovieOrganizer\\MovieOrganizer\\MovieOrganizer.csproj",
+        "packagesPath": "C:\\Users\\bedon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bedon\\source\\repos\\MovieOrganizer\\MovieOrganizer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bedon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
         },
@@ -34,16 +35,11 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
@@ -51,25 +47,21 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.8, )"
+              "version": "[7.0.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.8, )"
+              "version": "[7.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.8, )"
+              "version": "[7.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.8, )"
-            },
-            "System.Security.Claims": {
-              "target": "Package",
-              "version": "[4.3.0, )"
+              "version": "[7.0.10, )"
             }
           },
           "imports": [
@@ -91,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

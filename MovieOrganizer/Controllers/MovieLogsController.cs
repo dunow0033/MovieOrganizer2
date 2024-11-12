@@ -47,7 +47,8 @@ namespace MovieOrganizer.Controllers
         public async Task<IActionResult> Create(MovieLogViewModel movieLogViewModel)
         {
             var selectedMovie = await movieRepository.GetByIdAsync(movieLogViewModel.MovieId);
-            var existingUser = await userManager.FindByIdAsync(2.ToString());
+            var userId = userManager.GetUserId(User);
+            var existingUser = await userManager.FindByIdAsync(userId);
 
             var movieLog = new MovieLog
             {

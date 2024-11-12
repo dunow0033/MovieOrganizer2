@@ -28,6 +28,22 @@ builder.Services.AddSession(options =>
 
 var app = builder.Build();
 
+using(var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+
+    string[] roleNames = { "User" };
+    foreach(var roleName in roleNames)
+    {
+        var roleExist = await roleManager.RoleExistsAsync(roleName);
+        if(!roleExist)
+        {
+            await roleManager.CreateAsync(new IdentityRole<Guid>(roleName));
+        }
+    }
+}
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

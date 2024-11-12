@@ -29,10 +29,12 @@ namespace MovieOrganizer.Controllers
 			var user = new User
 			{
 				UserName = registerViewModel.Username,
-				Email = registerViewModel.Email
+				Email = registerViewModel.Email,
+				PasswordHash = registerViewModel.Password
 			};
 
-			var identityResult = await userManager.CreateAsync(user, registerViewModel.Password);
+			//var identityResult = await userManager.CreateAsync(user, registerViewModel.Password);
+			var identityResult = await userManager.CreateAsync(user);
 
 			if (identityResult.Succeeded)
 			{
@@ -89,5 +91,18 @@ namespace MovieOrganizer.Controllers
 
 			return View();
 		}
-	}
+
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
+    }
 }

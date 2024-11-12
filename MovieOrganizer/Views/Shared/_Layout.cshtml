@@ -27,7 +27,8 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Movies" asp-action="Index">Home</a>
                         </li>
 
-                        @if (User.Identity.IsAuthenticated)
+                        @*@if (User.Identity.IsAuthenticated)*@
+                        @if (signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Movies" asp-action="Index">All Movies</a>
@@ -42,9 +43,12 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="MovieLogs" asp-action="Create">Add a New Comment</a>
                             </li>
                             <li class="nav-item">
-                                <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
-                                    <button type="submit" class="btn btn-primary nav-link">Log Out</button>
-                                </form>
+                                <a 
+                                    asp-controller="Account" 
+                                    asp-action="Logout" method="post" class="d-inline btn btn-primary nav-link">
+                                    @*<button type="submit" class="btn btn-primary nav-link">Log Out</button>*@
+                                    Log Out
+                                </a>
                             </li>
                         }
                         else
