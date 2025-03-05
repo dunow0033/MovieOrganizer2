@@ -7,7 +7,7 @@
 				Login
 			</h1>
 
-			@if (!ViewData.ModelState.IsValid)
+			@if(!ViewData.ModelState.IsValid)
 			{
 				<div class="alert alert-danger">
 					@foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
@@ -20,7 +20,7 @@
 			<form method="post">
 				<div class="mb-3">
 					<label class="form-label">Username</label>
-					<input type="text" id="username" class="form-control" asp-for="Username" required />
+					<input type="text" id="username" class="form-control" asp-for="UserName" required />
 				</div>
 
 				<div class="mb-3">

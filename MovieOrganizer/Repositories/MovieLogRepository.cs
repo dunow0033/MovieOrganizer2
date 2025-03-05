@@ -47,7 +47,7 @@ namespace MovieOrganizer.Repositories
             return null;
         }
 
-        public async Task<MovieLog?> DeleteAsync(int id)
+        public async Task<MovieLog?> DeleteAsync(Guid id)
         {
             var existingBlogPost = await movieDBContext.MovieLogs.FindAsync(id);
 

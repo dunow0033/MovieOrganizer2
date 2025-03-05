@@ -1,11 +1,3 @@
-C:\Users\bedon\Source\Repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\MovieOrganizer.csproj.AssemblyReference.cache
-C:\Users\bedon\Source\Repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\MovieOrganizer.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\bedon\Source\Repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\MovieOrganizer.AssemblyInfoInputs.cache
-C:\Users\bedon\Source\Repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\MovieOrganizer.AssemblyInfo.cs
-C:\Users\bedon\Source\Repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\MovieOrganizer.csproj.CoreCompileInputs.cache
-C:\Users\bedon\Source\Repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\MovieOrganizer.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\bedon\Source\Repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\MovieOrganizer.RazorAssemblyInfo.cache
-C:\Users\bedon\Source\Repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\MovieOrganizer.RazorAssemblyInfo.cs
 C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\bin\Debug\net7.0\appsettings.json
 C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\bin\Debug\net7.0\MovieOrganizer.staticwebassets.runtime.json
@@ -58,6 +50,14 @@ C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\bin\Debug\net7.0\runti
 C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\MovieOrganizer.csproj.AssemblyReference.cache
+C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\MovieOrganizer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\MovieOrganizer.AssemblyInfoInputs.cache
+C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\MovieOrganizer.AssemblyInfo.cs
+C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\MovieOrganizer.csproj.CoreCompileInputs.cache
+C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\MovieOrganizer.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\MovieOrganizer.RazorAssemblyInfo.cache
+C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\MovieOrganizer.RazorAssemblyInfo.cs
 C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\staticwebassets\msbuild.MovieOrganizer.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\staticwebassets\msbuild.build.MovieOrganizer.props
 C:\Users\bedon\source\repos\MovieOrganizer\MovieOrganizer\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.MovieOrganizer.props

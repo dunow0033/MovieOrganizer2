@@ -28,7 +28,7 @@
                         </li>
 
                         @*@if (User.Identity.IsAuthenticated)*@
-                        @if (signInManager.IsSignedIn(User))
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("User"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Movies" asp-action="Index">All Movies</a>

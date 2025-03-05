@@ -26,44 +26,72 @@ namespace MovieOrganizer.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
 		{
-			var user = new User
+            //Console.WriteLine($"Username: {registerViewModel.UserName}");
+            //Console.WriteLine($"Email: {registerViewModel.Email}");
+            //Console.WriteLine($"Password: {registerViewModel.Password}");
+
+            if (ModelState.IsValid)
 			{
-				UserName = registerViewModel.Username,
-				Email = registerViewModel.Email,
-				PasswordHash = registerViewModel.Password
-			};
+				var user = new User
+				{
+					UserName = registerViewModel.UserName,
+					Email = registerViewModel.Email,
+                };
 
-			//var identityResult = await userManager.CreateAsync(user, registerViewModel.Password);
-			var identityResult = await userManager.CreateAsync(user);
+				//Console.WriteLine($"UserName: {user.UserName}");
+				//Console.WriteLine($"Email: {user.Email}");
+				//Console.WriteLine($"Password: {registerViewModel.Password}");
 
-			if (identityResult.Succeeded)
-			{
-				var roleIdentityResult = await userManager.AddToRoleAsync(user, "User");
+				var identityResult = await userManager.CreateAsync(user, registerViewModel.Password);
 
-				if (roleIdentityResult.Succeeded)
+				if (identityResult.Succeeded)
 				{
 					//return RedirectToAction("Register");
 					await signInManager.SignInAsync(user, isPersistent: false);
-
 					return RedirectToAction("Index", "Movies");
 				}
-			}
-			else
-			{
-				foreach (var error in identityResult.Errors)
+				else
 				{
-					ModelState.AddModelError(string.Empty, error.Description);
+					foreach (var error in identityResult.Errors)
+					{
+						ModelState.AddModelError(string.Empty, error.Description);
+					}
 				}
-			}
+            }
+
+			//if (identityResult.Succeeded)
+			//{
+			//	var roleIdentityResult = await userManager.AddToRoleAsync(user, "User");
+
+			//	if (roleIdentityResult.Succeeded)
+			//	{
+			//		//return RedirectToAction("Register");
+			//		await signInManager.SignInAsync(user, isPersistent: false);
+
+			//		return RedirectToAction("Index", "Movies");
+			//	}
+			//}
+			//else
+			//{
+			//	foreach (var error in identityResult.Errors)
+			//	{
+			//		ModelState.AddModelError(string.Empty, error.Description);
+			//	}
+			//}
 
 			return View(registerViewModel);
 		}
 
 		[HttpGet]
 		public IActionResult Login()
-		{
-			return View();
-		}
+        {
+            var model = new LoginViewModel
+            {
+               
+            };
+
+            return View(model);
+        }
 
 
 		[HttpPost]
@@ -71,10 +99,19 @@ namespace MovieOrganizer.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				return View();
+				return View(loginViewModel);
 			}
 
-			var signInResult = await signInManager.PasswordSignInAsync(loginViewModel.Username,
+            var user = await userManager.FindByNameAsync(loginViewModel.UserName);
+
+            if (user == null)
+            {
+                // User not found
+                ModelState.AddModelError(string.Empty, "Invalid username.");
+                return View(loginViewModel);
+            }
+
+            var signInResult = await signInManager.PasswordSignInAsync(loginViewModel.UserName,
 				loginViewModel.Password, false, false);
 
 			if (signInResult != null && signInResult.Succeeded)
@@ -87,9 +124,20 @@ namespace MovieOrganizer.Controllers
 				return RedirectToAction("Index", "Movies");
 			}
 
-			ModelState.AddModelError(string.Empty, "Invalid username or password.");
+            if (signInResult.IsLockedOut)
+            {
+                ModelState.AddModelError(string.Empty, "User account locked out.");
+            }
+            else if (signInResult.IsNotAllowed)
+            {
+                ModelState.AddModelError(string.Empty, "User account not allowed.");
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid password.");
+            }
 
-			return View();
+			return View(loginViewModel);
 		}
 
         [HttpGet]

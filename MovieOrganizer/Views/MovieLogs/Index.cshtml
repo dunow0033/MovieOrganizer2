@@ -23,7 +23,7 @@
                             </em>
                             </label>
 
-                        @if (movieLog.User.Id.ToString() == User.FindFirstValue(ClaimTypes.NameIdentifier))
+                        @if (movieLog.User != null && movieLog.UserId.ToString() == User.FindFirstValue(ClaimTypes.NameIdentifier))
                         {
                             <a class="nav-link text-dark" 
                                 asp-area="" 

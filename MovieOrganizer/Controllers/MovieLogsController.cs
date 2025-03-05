@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Azure;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MovieOrganizer.Models.Domain;
@@ -78,5 +79,50 @@ namespace MovieOrganizer.Controllers
             ViewData["Title"] = $"Update {existingMovie.Title} Log";
             return View(existingMovie);
         }
-    }
+
+		[HttpPost]
+		public async Task<IActionResult> Update(EditMovieLogRequest editMovieLogRequest)
+		{
+			var movieLog = new MovieLog
+			{
+				Id = editMovieLogRequest.Id,
+
+                MovieId = editMovieLogRequest.MovieId,
+
+                Title = editMovieLogRequest.Title,
+
+                UserId = editMovieLogRequest.UserId,
+
+                User = editMovieLogRequest.User,
+
+	            Comments = editMovieLogRequest.Comments
+	        };
+
+			var updatedLog = await movieLogRepository.UpdateAsync(movieLog);
+
+			if(updatedLog != null)
+            {
+                return RedirectToAction("Index");
+            }
+            else 
+            {
+                //show error notification
+            }
+
+            return RedirectToAction("Update", new { id = editMovieLogRequest.Id });
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> Delete(EditMovieLogRequest editMovieLogRequest)
+		{
+			var deletedLog = await movieLogRepository.DeleteAsync(editMovieLogRequest.Id);
+
+			if (deletedLog != null)
+			{
+				return RedirectToAction("Index");
+			}
+
+			return RedirectToAction("Index", new { id = editMovieLogRequest.Id });
+		}
+	}
 }

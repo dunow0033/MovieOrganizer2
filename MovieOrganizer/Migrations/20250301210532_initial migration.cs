@@ -1,13 +1,12 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
-using MovieOrganizer.Models.Domain;
 
 #nullable disable
 
 namespace MovieOrganizer.Migrations
 {
     /// <inheritdoc />
-    public partial class initialseeding : Migration
+    public partial class initialmigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

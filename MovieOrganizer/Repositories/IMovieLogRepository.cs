@@ -6,7 +6,7 @@ namespace MovieOrganizer.Repositories
     {
         Task<MovieLog?> CreateAsync(MovieLog movieLog);
         Task<MovieLog?> UpdateAsync(MovieLog movieLog);
-        Task<MovieLog?> DeleteAsync(int id);
+        Task<MovieLog?> DeleteAsync(Guid id);
         Task<MovieLog?> GetAsync(int id);
         Task<IEnumerable<MovieLog>> GetAllAsync();
     }

@@ -12,8 +12,8 @@ using MovieOrganizer.Data;
 namespace MovieOrganizer.Migrations
 {
     [DbContext(typeof(MovieDBContext))]
-    [Migration("20241112170816_initial seeding")]
-    partial class initialseeding
+    [Migration("20250301210532_initial migration")]
+    partial class initialmigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

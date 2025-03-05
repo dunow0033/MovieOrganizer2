@@ -5,7 +5,7 @@ namespace MovieOrganizer.Models.ViewModels
     public class LoginViewModel
     {
         [Required]
-        public string Username { get; set; }
+        public string UserName { get; set; }
 
         [Required]
         [MinLength(6, ErrorMessage = "Password has to be at least 6 characters")]
